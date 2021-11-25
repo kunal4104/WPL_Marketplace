@@ -41,7 +41,9 @@ exports.resizeProductPhoto = catchAsync(async (req, res, next) => {
     .resize(500, 500)
     .toFormat('jpeg')
     .jpeg({ quality: 90 })
-    .toFile(`public/img/products/${req.file.filename}`);
+    .toFile(`./../furniture_store/public/img/product/${req.file.filename}`);
+
+  // .toFile(`public/img/products/${req.file.filename}`);
 
   next();
 });
@@ -122,4 +124,5 @@ exports.getAllProducts = factory.getAll(Product);
 
 // Do NOT update passwords with this!
 exports.updateProduct = factory.updateOne(Product);
+
 exports.deleteProduct = factory.deleteOne(Product);
