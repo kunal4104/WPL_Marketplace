@@ -82,10 +82,25 @@ app.use((req, res, next) => {
 // 3) ROUTES
 app.use('/api/v1/users', userRouter);
 app.use('/api/v1/products', productRouter);
+// app.use('/api/v1/categories', categoryRouter);
+
 
 app.all('*', (req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));
 });
+
+
+// app.get('/prods', function(req, res) {
+//   collection.find({"acive":true} , function(err, products){
+//     if(err) throw err;
+//     res.json(products);
+//   });
+// });
+
+// app.get("/api/v1/categories", (req, res) => {
+//   res.json({ message: "Hello from server!" });
+// });
+
 
 app.use(globalErrorHandler);
 

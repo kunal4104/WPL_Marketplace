@@ -1,6 +1,7 @@
 const express = require('express');
 const productController = require('../controllers/productController');
 const authController = require('../controllers/authController');
+const catchAsync = require('../utils/catchAsync');
 
 const router = express.Router();
 
@@ -8,6 +9,11 @@ const router = express.Router();
 // router.post('/login', authController.login);
 // router.get('/logout', authController.logout);
 router.get('/', productController.getAllProducts);
+router.get('/bedroom', productController.getAllBedroomProducts);
+router.get('/kitchen', productController.getAllKitchenProducts);
+router.get('/dining', productController.getAllDiningProducts);
+router.get('/study', productController.getAllStudyProducts);
+
 router.get('/:id', productController.getProduct);
 
 router.use(authController.protected);
@@ -18,6 +24,16 @@ router.post(
   productController.resizeProductPhoto,
   productController.createProduct
 );
+
+router.post(
+  '/categories',
+  productController.uploadProductPhoto,
+  productController.resizeProductPhoto,
+  productController.createProduct
+);
+
+
+
 router.patch(
   '/:id',
   productController.uploadProductPhoto,
