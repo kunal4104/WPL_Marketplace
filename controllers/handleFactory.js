@@ -185,3 +185,123 @@ exports.getAllStudyProducts = (Model) =>
       },
     });
   });  
+
+exports.getSpecificProduct = (Model) =>
+  catchAsync(async (req, res, next) => {
+    // To allow for nested GET reviews on tour (hack)
+    //let filter = {};
+    //if (req.params.category) filter = { req.params.category : 'bedroom' };
+    var search_regex = new RegExp([req.params.title].join(""),"i");
+    const features = new APIFeatures(Model.find({'title' : search_regex }), req.query)
+      .filter()
+      .sort()
+      .limitFields()
+      .paginate();
+    // const doc = await features.query.explain();
+    const doc = await features.query;
+
+    // SEND RESPONSE
+    res.status(200).json({
+      status: 'success',
+      results: doc.length,
+      data: {
+        data: doc,
+      },
+    });
+  });  
+
+exports.getSearchedBedroomProducts = (Model) =>
+  catchAsync(async (req, res, next) => {
+    // To allow for nested GET reviews on tour (hack)
+    //let filter = {};
+    //if (req.params.category) filter = { req.params.category : 'bedroom' };
+    var search_regex = new RegExp([req.params.title].join(""),"i");
+    const features = new APIFeatures(Model.find({'title' : search_regex , 'category' : 'bedroom' }), req.query)
+      .filter()
+      .sort()
+      .limitFields()
+      .paginate();
+    // const doc = await features.query.explain();
+    const doc = await features.query;
+
+    // SEND RESPONSE
+    res.status(200).json({
+      status: 'success',
+      results: doc.length,
+      data: {
+        data: doc,
+      },
+    });
+  }); 
+
+exports.getSearchedKitchenProducts = (Model) =>
+  catchAsync(async (req, res, next) => {
+    // To allow for nested GET reviews on tour (hack)
+    //let filter = {};
+    //if (req.params.category) filter = { req.params.category : 'bedroom' };
+    var search_regex = new RegExp([req.params.title].join(""),"i");
+    const features = new APIFeatures(Model.find({'title' : search_regex , 'category' : 'kitchen' }), req.query)
+      .filter()
+      .sort()
+      .limitFields()
+      .paginate();
+    // const doc = await features.query.explain();
+    const doc = await features.query;
+
+    // SEND RESPONSE
+    res.status(200).json({
+      status: 'success',
+      results: doc.length,
+      data: {
+        data: doc,
+      },
+    });
+  }); 
+
+exports.getSearchedDiningProducts = (Model) =>
+  catchAsync(async (req, res, next) => {
+    // To allow for nested GET reviews on tour (hack)
+    //let filter = {};
+    //if (req.params.category) filter = { req.params.category : 'bedroom' };
+    var search_regex = new RegExp([req.params.title].join(""),"i");
+    const features = new APIFeatures(Model.find({'title' : search_regex , 'category' : 'dining' }), req.query)
+      .filter()
+      .sort()
+      .limitFields()
+      .paginate();
+    // const doc = await features.query.explain();
+    const doc = await features.query;
+
+    // SEND RESPONSE
+    res.status(200).json({
+      status: 'success',
+      results: doc.length,
+      data: {
+        data: doc,
+      },
+    });
+  }); 
+
+exports.getSearchedStudyProducts = (Model) =>
+  catchAsync(async (req, res, next) => {
+    // To allow for nested GET reviews on tour (hack)
+    //let filter = {};
+    //if (req.params.category) filter = { req.params.category : 'bedroom' };
+    var search_regex = new RegExp([req.params.title].join(""),"i");
+    const features = new APIFeatures(Model.find({'title' : search_regex , 'category' : 'study' }), req.query)
+      .filter()
+      .sort()
+      .limitFields()
+      .paginate();
+    // const doc = await features.query.explain();
+    const doc = await features.query;
+
+    // SEND RESPONSE
+    res.status(200).json({
+      status: 'success',
+      results: doc.length,
+      data: {
+        data: doc,
+      },
+    });
+  }); 

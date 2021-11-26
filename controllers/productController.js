@@ -123,6 +123,13 @@ exports.getAllBedroomProducts = factory.getAllBedroomProducts(Product)
 exports.getAllKitchenProducts = factory.getAllKitchenProducts(Product)
 exports.getAllStudyProducts = factory.getAllStudyProducts(Product)
 exports.getAllDiningProducts = factory.getAllDiningProducts(Product)
+exports.getSpecificProduct = factory.getSpecificProduct(Product)
+
+exports.getSearchedBedroomProducts = factory.getSearchedBedroomProducts
+exports.getSearchedKitchenProducts = factory.getSearchedKitchenProducts
+exports.getSearchedStudyProducts = factory.getSearchedStudyProducts
+exports.getSearchedLivingProducts = factory.getSearchedLivingProducts
+
 // Do NOT update passwords with this!
 exports.updateProduct = factory.updateOne(Product);
 exports.deleteProduct = factory.deleteOne(Product);
