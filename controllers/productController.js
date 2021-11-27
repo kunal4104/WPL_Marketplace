@@ -119,16 +119,16 @@ exports.resizeProductPhoto = catchAsync(async (req, res, next) => {
 exports.createProduct = factory.createOne(Product);
 exports.getProduct = factory.getOne(Product);
 exports.getAllProducts = factory.getAll(Product);
-exports.getAllBedroomProducts = factory.getAllBedroomProducts(Product)
-exports.getAllKitchenProducts = factory.getAllKitchenProducts(Product)
-exports.getAllStudyProducts = factory.getAllStudyProducts(Product)
-exports.getAllDiningProducts = factory.getAllDiningProducts(Product)
-exports.getSpecificProduct = factory.getSpecificProduct(Product)
+exports.getAllBedroomProducts = factory.getAllBedroomProducts(Product);
+exports.getAllKitchenProducts = factory.getAllKitchenProducts(Product);
+exports.getAllStudyProducts = factory.getAllStudyProducts(Product);
+exports.getAllDiningProducts = factory.getAllDiningProducts(Product);
+exports.getSpecificProduct = factory.getSpecificProduct(Product);
 
-exports.getSearchedBedroomProducts = factory.getSearchedBedroomProducts
-exports.getSearchedKitchenProducts = factory.getSearchedKitchenProducts
-exports.getSearchedStudyProducts = factory.getSearchedStudyProducts
-exports.getSearchedLivingProducts = factory.getSearchedLivingProducts
+exports.getSearchedBedroomProducts = factory.getSearchedBedroomProducts(Product)
+exports.getSearchedKitchenProducts = factory.getSearchedKitchenProducts(Product)
+exports.getSearchedStudyProducts = factory.getSearchedStudyProducts(Product)
+exports.getSearchedLivingProducts = factory.getSearchedLivingProducts(Product)
 
 // Do NOT update passwords with this!
 exports.updateProduct = factory.updateOne(Product);

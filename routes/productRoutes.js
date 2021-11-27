@@ -17,7 +17,7 @@ router.get('/study', productController.getAllStudyProducts);
 router.get('/search' ,productController.getSpecificProduct)
 router.get('/bedroom/search', productController.getSearchedBedroomProducts);
 router.get('/kitchen/search', productController.getSearchedKitchenProducts);
-router.get('/dining/search', productController.getSearchedDiningProducts);
+router.get('/living/search', productController.getSearchedLivingProducts);
 router.get('/study/search', productController.getSearchedStudyProducts);
 
 
