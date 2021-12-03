@@ -23,5 +23,5 @@ exports.getUserOrders = catchAsync(async (req, res, next) => {
 exports.createOrder = factory.createOne(Order);
 exports.getOrder = factory.getOne(Order);
 exports.getAllOrders = factory.getAll(Order);
-exports.updateProduct = factory.updateOne(Order);
-exports.deleteProduct = factory.deleteOne(Order);
+exports.updateOrder = factory.updateOne(Order);
+exports.deleteOrder = factory.deleteOne(Order);

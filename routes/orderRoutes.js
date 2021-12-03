@@ -14,11 +14,10 @@ router
   .get(authController.restrictTo('admin'), orderController.getAllOrders)
   .post(authController.restrictTo('user'), orderController.createOrder);
 
-router.get(
-  '/:id',
-  authController.restrictTo('admin'),
-  orderController.getOrder
-);
+router
+  .route('/:id')
+  .get(authController.restrictTo('admin'), orderController.getOrder)
+  .patch(authController.restrictTo('admin'), orderController.updateOrder);
 
 router.get('/user/:id', orderController.getUserOrders);
 
