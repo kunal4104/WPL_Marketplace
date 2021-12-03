@@ -23,6 +23,32 @@ const productSchema = new mongoose.Schema({
     type: String,
     default: 'default.jpg',
   },
+
+  description: {
+    type: String,
+    required: [true, 'product requires a description!'],
+  },
+
+  size: {
+    type: String,
+    default: 'Different Sizes',
+  },
+
+  color: {
+    type: String,
+    default: 'Plain',
+  },
+
+  material: {
+    type: String,
+    default: 'Various',
+  },
+
+  category: {
+    type: String,
+    required: [true, 'product requires a category!'],
+  },
+
   // role: {
   //   type: String,
   //   enum: ['user', 'admin'],

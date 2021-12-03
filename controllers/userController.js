@@ -40,7 +40,8 @@ exports.resizeUserPhoto = catchAsync(async (req, res, next) => {
     .resize(500, 500)
     .toFormat('jpeg')
     .jpeg({ quality: 90 })
-    .toFile(`public/img/users/${req.file.filename}`);
+    .toFile(`./../furniture_store/public/img/user/${req.file.filename}`);
+  // .toFile(`public/img/users/${req.file.filename}`);
 
   next();
 });
@@ -96,12 +97,12 @@ exports.deleteMe = catchAsync(async (req, res, next) => {
   });
 });
 
-exports.createUser = (req, res) => {
-  res.status(500).json({
-    status: 'error',
-    message: 'This route is not defined! Please use /signup instead',
-  });
-};
+// exports.createUser = (req, res) => {
+//   res.status(500).json({
+//     status: 'error',
+//     message: 'This route is not defined! Please use /signup instead',
+//   });
+// };
 
 exports.getUser = factory.getOne(User);
 exports.getAllUsers = factory.getAll(User);

@@ -14,6 +14,7 @@ const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
 const userRouter = require('./routes/userRoutes');
 const productRouter = require('./routes/productRoutes');
+const orderRouter = require('./routes/orderRoutes');
 
 // Start express app
 const app = express();
@@ -82,13 +83,12 @@ app.use((req, res, next) => {
 // 3) ROUTES
 app.use('/api/v1/users', userRouter);
 app.use('/api/v1/products', productRouter);
+app.use('/api/v1/orders', orderRouter);
 // app.use('/api/v1/categories', categoryRouter);
-
 
 app.all('*', (req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));
 });
-
 
 // app.get('/prods', function(req, res) {
 //   collection.find({"acive":true} , function(err, products){
@@ -100,7 +100,6 @@ app.all('*', (req, res, next) => {
 // app.get("/api/v1/categories", (req, res) => {
 //   res.json({ message: "Hello from server!" });
 // });
-
 
 app.use(globalErrorHandler);
 
