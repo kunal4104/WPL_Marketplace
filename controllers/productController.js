@@ -29,7 +29,6 @@ exports.resizeProductPhoto = catchAsync(async (req, res, next) => {
   req.body.photo = req.file.filename;
 
   await sharp(req.file.buffer)
-    .resize(500, 500)
     .toFormat('jpeg')
     .jpeg({ quality: 90 })
     .toFile(`./../furniture_store/public/img/product/${req.file.filename}`);
@@ -48,10 +47,12 @@ exports.getAllStudyProducts = factory.getAllStudyProducts(Product);
 exports.getAllDiningProducts = factory.getAllDiningProducts(Product);
 exports.getSpecificProduct = factory.getSpecificProduct(Product);
 
-exports.getSearchedBedroomProducts = factory.getSearchedBedroomProducts(Product)
-exports.getSearchedKitchenProducts = factory.getSearchedKitchenProducts(Product)
-exports.getSearchedStudyProducts = factory.getSearchedStudyProducts(Product)
-exports.getSearchedLivingProducts = factory.getSearchedLivingProducts(Product)
+exports.getSearchedBedroomProducts =
+  factory.getSearchedBedroomProducts(Product);
+exports.getSearchedKitchenProducts =
+  factory.getSearchedKitchenProducts(Product);
+exports.getSearchedStudyProducts = factory.getSearchedStudyProducts(Product);
+exports.getSearchedLivingProducts = factory.getSearchedLivingProducts(Product);
 
 // Do NOT update passwords with this!
 exports.updateProduct = factory.updateOne(Product);
