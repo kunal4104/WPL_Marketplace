@@ -4,81 +4,75 @@ const mongoose = require('mongoose');
 // const bcrypt = require('bcryptjs');
 
 const productSchema = new mongoose.Schema({
-  title: {
-    type: String,
-    required: [true, 'product requires a title!'],
-  },
-  price: {
-    type: Number,
-    required: [true, 'product requires a price!'],
-  },
-  // email: {
-  //   type: String,
-  //   required: [true, 'Please provide your email'],
-  //   unique: true,
-  //   lowercase: true,
-  //   validate: [validator.isEmail, 'Please provide a valid email'],
-  // },
-  photo: {
-    type: String,
-    default: 'default.jpg',
-  },
+	title: {
+		type: String,
+		required: [true, 'product requires a title!'],
+	},
+	price: {
+		type: Number,
+		required: [true, 'product requires a price!'],
+	},
 
-  description: {
-    type: String,
-    required: [true, 'product requires a description!'],
-  },
+	photo: {
+		type: String,
+		default: 'default.jpg',
+	},
 
-  size: {
-    type: String,
-    default: 'Different Sizes',
-  },
+	description: {
+		type: String,
+		required: [true, 'product requires a description!'],
+	},
 
-  color: {
-    type: String,
-    default: 'Plain',
-  },
+	size: {
+		type: String,
+		default: 'Different Sizes',
+	},
 
-  material: {
-    type: String,
-    default: 'Various',
-  },
+	color: {
+		type: String,
+		default: 'Plain',
+	},
 
-  category: {
-    type: String,
-    required: [true, 'product requires a category!'],
-  },
+	material: {
+		type: String,
+		default: 'Various',
+	},
 
-  // role: {
-  //   type: String,
-  //   enum: ['user', 'admin'],
-  //   default: 'user',
-  // },
-  // password: {
-  //   type: String,
-  //   required: [true, 'Please provide a password'],
-  //   minlength: 8,
-  //   select: false,
-  // },
-  // passwordConfirm: {
-  //   type: String,
-  //   required: [true, 'Please confirm your password'],
-  //   validate: {
-  //     // This only works on CREATE and SAVE!!!
-  //     validator: function (el) {
-  //       return el === this.password;
-  //     },
-  //     message: 'Passwords are not the same!',
-  //   },
-  // },
-  // passwordChangedAt: Date,
-  // passwordResetToken: String,
-  // passwordResetExpires: Date,
-  active: {
-    type: Boolean,
-    default: true,
-    select: false,
-  },
+	category: {
+		type: String,
+		required: [true, 'product requires a category!'],
+	},
+
+	// role: {
+	//   type: String,
+	//   enum: ['user', 'admin'],
+	//   default: 'user',
+	// },
+	// password: {
+	//   type: String,
+	//   required: [true, 'Please provide a password'],
+	//   minlength: 8,
+	//   select: false,
+	// },
+	// passwordConfirm: {
+	//   type: String,
+	//   required: [true, 'Please confirm your password'],
+	//   validate: {
+	//     // This only works on CREATE and SAVE!!!
+	//     validator: function (el) {
+	//       return el === this.password;
+	//     },
+	//     message: 'Passwords are not the same!',
+	//   },
+	// },
+	// passwordChangedAt: Date,
+	// passwordResetToken: String,
+	// passwordResetExpires: Date,
+	active: {
+		type: Boolean,
+		default: true,
+		select: false,
+	},
 });
 
 // userSchema.pre('save', async function (next) {
